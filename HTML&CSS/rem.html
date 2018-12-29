@@ -4,26 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>rem</title>
+    <style>
+        body {
+            font-size: 14px; /* 矫正字体大小 */
+        }
+
+        .container h4 {
+            font-size: 0.3rem;
+        }
+    </style>
 </head>
 <body>
-
+    <div class="container">
+        <h4>响应式单位 REM</h4>
+    </div>
+    
     <script>
         (function(doc, win) {
-            var docEl = doc.documentElement,
+            var html = doc.documentElement,
                 resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
                 recalc = function() {
-                    var clientWidth = docEl.clientWidth;
-                    if(!clientWidth) return;
-                    if(clientWidth >= 750) {
-                        docEl.style.fontSize = '100px';
+                    clientWidth = html.clientWidth
+                    if (!clientWidth) return
+                    if (clientWidth >= 750) { // 判断是否是移动设备
+                        html.style.fontSize = '100px'
                     } else {
-                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                        html.style.fontSize = (clientWidth / 750) * 100 + 'px'
                     }
-                };
-            if(!doc.addEventListener) return;
-            win.addEventListener(resizeEvt, recalc, false);
-            doc.addEventListener('DOMContentLoaded', recalc, false);
+                }
+
+                if (!doc.addEventListener) return // IE9 以下的浏览器为 attachEvent，并且不支持 rem
+                win.addEventListener(resizeEvt, recalc, false)
+                doc.addEventListener('DOMContentLoaded', recalc, false)
         })(document, window)
     </script>
 </body>
