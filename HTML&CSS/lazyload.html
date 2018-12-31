@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <style>
+        img {
+            display: block;
+            margin-bottom: 200px;
+            width: 225px;
+            height: 225px;
+        }
+    </style>
+</head>
+<body>
+    <div id="img-comtainer">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/angular.png" alt="">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/react.png" alt="">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/vue.jpg" alt="">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/angular.png" alt="">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/react.png" alt="">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/vue.jpg" alt="">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/angular.png" alt="">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/react.png" alt="">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/vue.jpg" alt="">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/angular.png" alt="">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/react.png" alt="">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/vue.jpg" alt="">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/angular.png" alt="">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/react.png" alt="">
+        <img src="./images/default.png" data-src="http://pjv3xsmsr.bkt.clouddn.com/lazyload/vue.jpg" alt="">
+    </div>
+    
+    <script>
+        window.onload = function() {
+            var imgs = document.getElementsByTagName('img'),
+                len = imgs.length,
+                n = 0 //存储图片加载到的位置，避免每次都从第一张图片开始遍历
+            
+            function lazyload() {
+                var clientHeight = document.documentElement.clientHeight
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+
+                for (var i = 0; i < len; i++) {
+                    var offsetTop = imgs[i].offsetTop
+                    if (offsetTop < (clientHeight + scrollTop)) {
+                        imgs[i].src = imgs[i].getAttribute('data-src')
+                    }
+                    n = i + 1
+                }
+            }
+
+            lazyload()
+            window.onscroll = lazyload
+        }
+        // TODO 节流
+    </script>
+</body>
+</html>
