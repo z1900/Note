@@ -28,6 +28,7 @@ console.log(child2.citys) // ['dalian', 'beijing', 'shenyang']
 */
 
 
+
 // 2.构造函数继承（经典继承）
 function Parent(name) {
     this.name = name
@@ -58,6 +59,9 @@ console.log(child2.citys) // ['dalian', 'beijing']
     1.方法都要定义在构造函数内，每次实例化都会创建一遍方法
 */
 
+
+
+
 // 3.组合继承（原型链继承 + 经典继承）
 function Parent(name) {
     this.name = name
@@ -82,6 +86,8 @@ child.getName()
 优点：融合原型链继承和构造函数的优点，是 JavaScript 中最常用的继承模式
 */
 
+
+
 // 4.原型式继承
 function CreateObj(o) {
     function F() {}
@@ -93,6 +99,8 @@ function CreateObj(o) {
  ES5 Object.create 的模拟实现，将传入的对象作为创建的对象的原型
  缺点:包含引用类型的属性值始终都会共享相应的值，这点跟原型链继承一样
 */
+
+
 
 // 5.寄生式继承
 function CreateObj(o) {
@@ -108,6 +116,8 @@ function CreateObj(o) {
 /*
 缺点：跟借用构造函数模式一样，每次创建对象都会创建一遍方法
 */
+
+
 
 // 6.寄生组合式
 function Parent(name) {
