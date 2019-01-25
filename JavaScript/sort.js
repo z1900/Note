@@ -50,6 +50,8 @@ function quickSort(arr) {
     return _left.concat(midItem, _right)
 }
 
+
+
 // 归并排序
 function merge(left, right) {
     var result = []
